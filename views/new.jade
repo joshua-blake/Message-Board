@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1 Add New Message
+  form( method="POST" action="/new")
+    label(for="user") User/Name 
+    input#user(type="text" name="user" minlength=1 maxlength=15 required)
+    p
+    label(for="message") Message -- 
+    input#message(type="text" name="message" minlength=1 maxlength=30 required)
+    p
+    input(type="submit" id="subMessage" )
+    p
+  button
+    style="#back{color:black; underline:none; text-decoration: none;}"
+    a#back(href="/") Back
+  script(type="text/javascript").

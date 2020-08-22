@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  div(id="message-cont")
+    h1(id="titless") Message Board
+    button
+      style="#newMessage{color:black; underline:none; text-decoration: none;}"
+      a#newMessage( href="/new") New Message
+  script(type="text/javascript").
+    var listers = JSON.parse('!{lister}');
+    console.log(listers)
+    for(i = 0; i < Object.keys(listers).length; i++){
+      if(listers[i].user != undefined && listers[i].text != undefined && listers[i].user != "" && listers[i].text != ""){
+        var x = document.createElement("h2");
+        x.innerText = (listers[i].user +"   ----   "+ listers[i].text +"   ----   "+ listers[i].added)
+        x.style = "border: 1px grey solid;"
+        var cont = document.getElementById("message-cont");
+        cont.appendChild(x);
+      }
+      else{
+        continue;
+    }
+    }
+    
